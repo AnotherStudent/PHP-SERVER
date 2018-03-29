@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Страница HTML5</title><meta charset="utf-8">
+ </head>
+ <body>
+
+<input type="edit" id="a" value="5"><br>
+<input type="edit" id="b" value="3"><br>
+
+<input type="edit" id="ans" value="" readonly><br>
+<button id="button_add">+</button> 
+<button id="button_sub">-</button> 
+<button id="button_mpy">*</button> 
+<button id="button_div">/</button> 
+<button id="button_pow">^</button> 
+<script>
+  //let ans = document.querySelector('#ans');  
+  //ans.value = 'ddd';
+  {
+       (button => {
+               
+               button.addEventListener(
+               'click',
+                  async ({ target: t}) => {
+                    let a = document.querySelector('#a').value;
+                    let b = document.querySelector('#b').value;
+                	const URL = 'https://blooming-basin-82312.herokuapp.com/add/'+a+'/'+b;
+                    const result = await fetch(URL).then(x => (x.text()));
+                    let ans = document.querySelector('#ans');  
+                    ans.value = result.replace(/<.*?>/g, "");
+                  }
+               );
+       })(document.querySelector('#button_add'));
+       (button => {
+               
+               button.addEventListener(
+               'click',
+                  async ({ target: t}) => {
+                    let a = document.querySelector('#a').value;
+                    let b = document.querySelector('#b').value;
+                	const URL = 'https://blooming-basin-82312.herokuapp.com/sub/'+a+'/'+b;
+                    const result = await fetch(URL).then(x => (x.text()));
+                    let ans = document.querySelector('#ans');  
+                    ans.value = result.replace(/<.*?>/g, "");
+                  }
+               );
+       })(document.querySelector('#button_sub'));
+       (button => {
+               
+               button.addEventListener(
+               'click',
+                  async ({ target: t}) => {
+                    let a = document.querySelector('#a').value;
+                    let b = document.querySelector('#b').value;
+                	const URL = 'https://blooming-basin-82312.herokuapp.com/mpy/'+a+'/'+b;
+                    const result = await fetch(URL).then(x => (x.text()));
+                    let ans = document.querySelector('#ans');  
+                    ans.value = result.replace(/<.*?>/g, "");
+                  }
+               );
+       })(document.querySelector('#button_mpy'));
+       (button => {
+               
+               button.addEventListener(
+               'click',
+                  async ({ target: t}) => {
+                    let a = document.querySelector('#a').value;
+                    let b = document.querySelector('#b').value;
+                	const URL = 'https://blooming-basin-82312.herokuapp.com/div/'+a+'/'+b;
+                    const result = await fetch(URL).then(x => (x.text()));
+                    let ans = document.querySelector('#ans');  
+                    ans.value = result.replace(/<.*?>/g, "");
+                  }
+               );
+       })(document.querySelector('#button_div'));
+       (button => {
+               
+               button.addEventListener(
+               'click',
+                  async ({ target: t}) => {
+                    let a = document.querySelector('#a').value;
+                    let b = document.querySelector('#b').value;
+                	const URL = 'https://blooming-basin-82312.herokuapp.com/pow/'+a+'/'+b;
+                    const result = await fetch(URL).then(x => (x.text()));
+                    let ans = document.querySelector('#ans');  
+                    ans.value = result.replace(/<.*?>/g, "");
+                  }
+               );
+       })(document.querySelector('#button_pow'));
+}</script>
+
+
+ </body>
+</html>
