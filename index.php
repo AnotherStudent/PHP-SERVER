@@ -16,7 +16,7 @@
   });
 
   $app->get('/add/{n1}/{n2}', function ($n1, $n2) use($app) {
-    return ($n1 + $n2);
+    return '<h1>' . $n1 . ' + ' . $n2 . ' = ' ($n1 + $n2) . '</h1>';
   });
 
   $app->error(function ($e) use($app) {
