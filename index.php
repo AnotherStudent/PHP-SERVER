@@ -20,7 +20,7 @@
 
   $app->get('/add/{n1}/{n2}', function ($n1, $n2) use($app) {
     return '<h1>' . $n1 . ' + ' . $n2 . ' = ' . ($n1 + $n2) . '</h1>';
-  });
+  })->after($hdrs);
 
   $app->error(function ($e) use($app) {
     if ($e instanceof Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
