@@ -23,8 +23,28 @@
     ));  
   });
 
+  $app->get('/author', function () use($app) {
+    return '<h4 id="author" title="GossJS">PeterS</h4>'; 
+  })->after($hdrs);
+
   $app->get('/add/{n1}/{n2}', function ($n1, $n2) use($app) {
-    return '<h1>' . $n1 . ' + ' . $n2 . ' = ' . ($n1 + $n2) . '</h1>';
+    return '<h1>' . $n1 . ' + ' . $n2 . ' = <span>' . ($n1 + $n2) . '</span></h1>';
+  })->after($hdrs);
+
+  $app->get('/sub/{n1}/{n2}', function ($n1, $n2) use($app) {
+    return '<h1>' . $n1 . ' - ' . $n2 . ' = <span>' . ($n1 - $n2) . '</span></h1>';
+  })->after($hdrs);
+
+  $app->get('/mpy/{n1}/{n2}', function ($n1, $n2) use($app) {
+    return '<h1>' . $n1 . ' * ' . $n2 . ' = <span>' . ($n1 * $n2) . '</span></h1>';
+  })->after($hdrs);
+
+  $app->get('/div/{n1}/{n2}', function ($n1, $n2) use($app) {
+    return '<h1>' . $n1 . ' / ' . $n2 . ' = <span>' . ($n1 / $n2) . '</span></h1>';
+  })->after($hdrs);
+
+  $app->get('/pow/{n1}/{n2}', function ($n1, $n2) use($app) {
+    return '<h1>' . $n1 . ' ^ ' . $n2 . ' = <span>' . (pow($n1, $n2)) . '</span></h1>';
   })->after($hdrs);
 
   $app->error(function ($e) use($app) {
