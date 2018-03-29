@@ -8,6 +8,11 @@
 
   //const app = express();
   $app = new Silex\Application();
+
+  $hdrs = function ($req, $res) {
+    $res->headers->set('Access-Control-Allow-Origin', '*');
+  };
+
   $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/views',
   ));
