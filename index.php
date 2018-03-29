@@ -1,7 +1,7 @@
 <?php
   error_reporting(E_ALL);
   ini_set('display_errors', 1);
-  
+
   require 'vendor/autoload.php';
   
   use Symfony\Component\HttpFoundation\Response;
@@ -19,7 +19,7 @@
   });
 
   $app->get('/add/{n1}/{n2}', function ($n1, $n2) use($app) {
-    return '<h1>' . $n1 . ' + ' . $n2 . ' = ' ($n1 + $n2) . '</h1>';
+    return '<h1>' . $n1 . ' + ' . $n2 . ' = ' . ($n1 + $n2) . '</h1>';
   });
 
   $app->error(function ($e) use($app) {
